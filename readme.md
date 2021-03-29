@@ -1,15 +1,15 @@
 ## Twitter Stream using Python, Kafka and MongoDB
-Este aplicativo é um modelo simplificado de extração real time de tweets e posterior persistência em uma base de dados do Mongo DB.
+This application is a simplified model for extracting real time tweets and subsequent persistence in a Mongo DB database.
 
-A aplicação se utiliza da solução Apache Kafka para realizar o streaming dos tweets coletados pelo crawler desenvolvido em python que monitora os tweets contendo uma palavra determinada, a cada intervalo de tempo determinado.
+The application uses the Apache Kafka solution to stream the tweets collected by the python crawler that monitors tweets containing a specific word, at a time interval.
 
-Após, as mensagens disponibilizadas no tópico do Kafka são consumidas e armazenadas em uma base de dados do Mongo DB.
+Afterwards, the messages available in the Kafka topic are consumed and stored in a Mongo DB database.
 
-Para acessar o API do Twitter, é necessário criar uma conta de desenvolvedor no Twitter e obter as chaves de acesso.
+To access the Twitter API it is necessary to create a Twitter developer account and obtain the access keys.
 
 ## Como realizar o deploy da aplicação
-1. Copie os arquivos deste repositório para o local em que deseja executar o aplicativo;
-2. Crie um arquivo .env e defina as seguintes variáveis de ambiente para acessar sua conta do twitter e sua conta do Mongo DB:
+1. Copy the fyles from this repo to a place where you want to run the application;
+2. Create a .env file and define the following environment variables to acesse Twitter API and Mongo DB Database:
     * API_Key
     * API_Secret_key
     * access_token 
@@ -19,13 +19,12 @@ Para acessar o API do Twitter, é necessário criar uma conta de desenvolvedor n
     * mongouser 
     * password 
 
-3. Abra um terminal de comando e execute o comando "docker-compose up -d" para iniciar a instância do Kafka
-4. Abra um novo terminal de comando, e inicie o producer do kafka, executando o comando "python stream_tweet.py"
-5. Abra um novo terminal de comando, e inicie o consumer do kafka, executando o comando "python consume_tweet.py
-6. Para visualizar o tópico do kafka e as mensagens, acesse através do browser o caminho "localhost:19000"
-7. As mensagens devem estar sendo armazenados em sua base do MongoDB
-8. Para alterar os termos a serem pesquisados, altere o valor da string argumento da função api.search(), no arquivo stream_tweet.py 
-
+3. Open a terminal and run command "docker-compose up -d" to start Kafka
+4. Open a new terminal and start kafka producer, with command "python stream_tweet.py"
+5. Open a new terminal and start kafka consumeer, with command "python consume_tweet.py
+6. In order to monitor the Kafka topic and its messages, access "localhost:9000" through our browser;
+7. Messagens must now be saved on your Mongo DB Database
+8. In order to modify the words to be searched, change the string value in the function api.search(), in stream_tweet.py
 
 ## License and Author info
 MIT License
